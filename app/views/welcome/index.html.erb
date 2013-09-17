@@ -1,0 +1,27 @@
+<img src="http://performancemartialartsacademy.com/wp-content/uploads/sign_up_now.jpg"/>
+<h2>Sign in</h2>
+<%= simple_form_for :user, :url => '/users', :html => { :class => 'form-horizontal' } do |f| %>
+	<%= f.input :firstname, :autofocus=>true, :placeholder => 'First Name', required: false %>
+	<%= f.input :lastname, :placeholder => 'Last Name', :class=>'form-control', required: false %>
+	<%= f.input :username, :placeholder => 'Username', required: false %>
+	
+	<div class="input string optional user_username">
+	<label class="string optional control-label" for="gender">gender</label>
+	<input type="radio" name="sex" value="male" style="padding-left:50px;">Male
+	<input type="radio" name="sex" value="female">Female<br>
+	</div>
+	<br/>
+	<%= f.input :email, :placeholder => 'Email', required: false %>
+	<%= f.input :password, :placeholder => 'Password', required: false %>
+	<%= f.input :password_confirmation, :label=> 'Confirmation', :placeholder => 'Password Confirmation', required: false %>
+	<div class="form-actions">
+		<%= f.submit "Sign up", class: "btn btn-primary" %>
+	</div>
+<% end %>
+
+<h3>Browse the my stuff</h3>
+<ul class="links">
+    <li><a href="http://www.linkedin.com/profile/view?id=231329117&goback=%2Enmp_*1_*1_*1_*1_*1_*1_*1_*1_*1_*1&trk=spm_pic/">My Linkedin</a></li>
+    <li><a href="https://www.facebook.com/AutoKaD">My Facebook</a></li>
+    <li><a href="http://www.oinkbay.com">Pigs!</a></li>
+</ul>

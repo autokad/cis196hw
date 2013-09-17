@@ -1,1 +1,57 @@
 http://frozen-reef-4529.herokuapp.com/
+
+added simple form to gemfile: gem 'simple_form'
+bundle install
+installed simple form:
+	rails generate simple_form:install
+
+generate welcome index controller
+rails generate controller welcome index
+
+update config/routes.rb with the line: root :to => 'welcome#index'	
+
+renamed public/index.html to index.html.old
+
+install boot strap
+updated gem:	gem 'bootstrap-sass', '~> 2.2.2.0'
+bundle install
+
+created new file: app/assets/stylesheets/styles.css.scss
+@import 'bootstrap';
+@import 'bootstrap-responsive';
+
+update: app/assets/javascripts/application.js
+//= require bootstrap
+
+updated app/views/welcome/index.html.erb with the following html:
+<img src="http://performancemartialartsacademy.com/wp-content/uploads/sign_up_now.jpg"/>
+<h2>Sign in</h2>
+<%= simple_form_for :user, :url => '/users', :html => { :class => 'form-horizontal' } do |f| %>
+	<%= f.input :firstname, :autofocus=>true, :placeholder => 'First Name', required: false %>
+	<%= f.input :lastname, :placeholder => 'Last Name', :class=>'form-control', required: false %>
+	<%= f.input :username, :placeholder => 'Username', required: false %>
+	
+	<div class="input string optional user_username">
+	<label class="string optional control-label" for="gender">gender</label>
+	<input type="radio" name="sex" value="male" style="padding-left:50px;">Male
+	<input type="radio" name="sex" value="female">Female<br>
+	</div>
+	<br/>
+	<%= f.input :email, :placeholder => 'Email', required: false %>
+	<%= f.input :password, :placeholder => 'Password', required: false %>
+	<%= f.input :password_confirmation, :label=> 'Confirmation', :placeholder => 'Password Confirmation', required: false %>
+	<div class="form-actions">
+		<%= f.submit "Sign up", class: "btn btn-primary" %>
+	</div>
+<% end %>
+
+<h3>Browse the my stuff</h3>
+<ul class="links">
+    <li><a href="http://www.linkedin.com/profile/view?id=231329117&goback=%2Enmp_*1_*1_*1_*1_*1_*1_*1_*1_*1_*1&trk=spm_pic/">My Linkedin</a></li>
+    <li><a href="https://www.facebook.com/AutoKaD">My Facebook</a></li>
+    <li><a href="http://www.oinkbay.com">Pigs!</a></li>
+</ul>
+
+
+
+*note, I had a lot of trouble with the radio buttons.  bootstrap was not styling them properly and had to do some manual sloppy work to get it done.
