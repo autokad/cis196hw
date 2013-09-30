@@ -1,6 +1,10 @@
 Cis196hw::Application.routes.draw do
-	get "welcome/index"
+	get "posts/new"
+	resources :posts
+  devise_for :users
 
+	get "welcome/index"
+	get 'about' => 'welcome#about'
 	#root to: "welcome#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
