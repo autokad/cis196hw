@@ -11,5 +11,5 @@
   <strong>email:</strong>
   <%= @user.email %>
 </p>
-
+<%= link_to "edit", edit_user_path(@user.id) %>
 <%= link_to "Back", :back %>

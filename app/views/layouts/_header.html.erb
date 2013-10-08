@@ -22,9 +22,11 @@
 						<li>
 							<%= link_to "Posts", posts_path %>
                         </li>
+						<% if user_signed_in? %>
 						<li>    
                             <%= link_to 'Add+',  new_post_path %>
                         </li>
+						<% end %>
                     </ul>
                     <ul class="nav pull-right">
 						<% if user_signed_in? %>

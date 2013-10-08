@@ -15,9 +15,13 @@ creating shows/etc for my users clashed with devise, so i had to make sure the d
 <br>
 
 i updated my header to include links to the user index, there one can edit and destroy users.
-
+<h1> NOTES </h1>
 *note the posts index has the link to the post in the title as does the users index, which has the show for the user when you click on the user id.
-
+*since posts and users are maried now, adding new posts is only available if signed in.
+* new posts are added by clicking the Add+ in the header.
+* new users are created through the sign up.
+* one can view the show/edit/destroy posts through http://frozen-reef-4529.herokuapp.com/posts or by clicking the header
+* one can view the show/edit/destroy users through http://frozen-reef-4529.herokuapp.com/users or by clicking the header
 ----------------------------------------------------------------------------------------------------------
 update gemfile:
 gem 'devise'
