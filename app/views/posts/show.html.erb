@@ -7,3 +7,8 @@
   <strong>Text:</strong>
   <%= @post.text %>
 </p>
+<p>
+
+by <%= link_to @post.user.username, @post.user %>
+</p>
+<%= link_to "Back", :back %>

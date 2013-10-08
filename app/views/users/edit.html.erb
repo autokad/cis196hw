@@ -1,0 +1,26 @@
+<div class="container">
+<h2>Edit</h2>
+
+<%= form_for(@user) do |f| %>
+
+  <p>
+    <%= f.label :text, "First Name" %><br>
+    <%= f.text_field :fname %>
+  </p>
+ 
+  <p>
+    <%= f.label :text, "Last Name"  %><br>
+    <%= f.text_field :lname %>
+  </p>
+
+
+
+ 
+  <p>
+     <%= f.submit "Done!", class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+
+<%= link_to "Back", :back %>
+</div>

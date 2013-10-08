@@ -1,7 +1,9 @@
 Cis196hw::Application.routes.draw do
 	get "posts/new"
 	resources :posts
-  devise_for :users
+	devise_for :users
+	resources :users
+  
 
 	get "welcome/index"
 	get 'about' => 'welcome#about'
