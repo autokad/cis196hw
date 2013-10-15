@@ -6,5 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # attr_accessible :title, :body
   attr_accessible :fname, :lname, :email, :password, :password_confirmation, :username, :remember_me
+  validates_presence_of :username, :presence => { :message => "Username cannot be blank" }
+  validates_uniqueness_of :username, :presence => { :message => "Username taken, please choose another" }
   has_many :posts, :dependent => :destroy
+  
 end

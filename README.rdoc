@@ -1,5 +1,41 @@
 http://frozen-reef-4529.herokuapp.com/
 
+I have 4 validations for posts:
+  validates :user_id, presence: true
+  validates_presence_of :title
+  validates_uniqueness_of :title
+  validates :text, length: { minimum: 2 }
+
+I have 4 validations for users: (devise manages this for me)
+	- Username cannot be blank
+	- Username must be unique
+	- email must be unique
+	- password confirmation must match 
+	- password cannot be blank
+
+I did not override my devise, but I made changes to the user model like so, even though devise takes precidence:	
+in my users.rb:
+	validates_presence_of :username
+	validates_uniqueness_of :username
+
+I added <strong>super awesome</strong> styling of my error messages with bootstrap:
+<% if @post.errors.any? %>
+	<div class="alert alert-error"> 
+		<a class="close" data-dismiss="alert">x</a> 
+		<% @post.errors.full_messages.each do |msg|  %>
+			<li><%= msg %></li>
+			<%end%>
+	</div>
+<% end%>
+	
+	
+<h3>Issues</h3>
+I had some issues with displaying error notifications because i changed some of my forms into HTML.  I had done so in the past because I was having issues styling my simple form and devise properly.
+a work around was adding <%= devise_error_messages! %> back to my devise user new registration view.
+
+
+
+----------------------------------------------------------------------------------------------------------
 most of the tasks i had done last week.  i had to use a migration to add the user id to my posts.  I also created a user model, even though before I was relying on devise.<br>
 i updated my post model with:
 	belongs_to :user
