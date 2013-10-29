@@ -1,5 +1,18 @@
 http://frozen-reef-4529.herokuapp.com/
 
+10.28.2013
+I have been using devise, so all I had to do was fix my edit user.  
+- the edit user on nav bar is for the current user which uses the devise gem.
+- the users on the nav bar directs you to the users index, which has an edit user button which directs you to a edit user view i created.
+
+
+
+
+
+
+
+
+------------------------------------
 I have 4 validations for posts:
   validates :user_id, presence: true
   validates_presence_of :title
