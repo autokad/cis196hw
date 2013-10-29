@@ -23,13 +23,13 @@ class PostsController < ApplicationController
 	end
 	
 	def edit
-		@post = current_user.posts.find(params[:id])
-		#@post = Post.find(params[:id])
+		#@post = current_user.posts.find(params[:id])
+		@post = Post.find(params[:id])
 	end
 	
 	def update
-		#@post = Post.find(params[:id])
-		@post = current_user.posts.find(params[:id])
+		@post = Post.find(params[:id])
+		#@post = current_user.posts.find(params[:id])
 		if (@post.update_attributes(params[:post]))
 			redirect_to @post
 		else
