@@ -16,6 +16,7 @@ end
 
 group :development, :test do
 	gem 'sqlite3'
+	gem 'letter_opener', github: 'ryanb/letter_opener'
 end
 
 
