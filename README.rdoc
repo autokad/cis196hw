@@ -1,5 +1,5 @@
 http://frozen-reef-4529.herokuapp.com/
-
+installed sendgrid and got devise working with password retrieval
 
 11.4.2013
 heroku addons:add sendgrid:starter
