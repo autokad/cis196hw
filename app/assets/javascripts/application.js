@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(function(){
+	$(".post-title").click(function() {
+		$(".post-text").css("display", "none");
+	});
+	$(".post-text").click(function() {
+		$(".post-title").css("color", "green");
+	});
+	$(window).resize(function(){
+		$(".post-title").css("color", "red");
+		$(".post-text").css("color", "blue");
+	});
+});
+

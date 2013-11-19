@@ -1,4 +1,17 @@
 http://frozen-reef-4529.herokuapp.com/
+11.18.2013
+on resize title turns red and text turns blue
+when 'Text:' is clicked, 'Title:' turns green.
+when 'Title:' is clicked, 'Text:' disapears.
+
+Use jQuery to add some sort of functionality to your app
+
+ie: Show/hide stuff
+
+change colors when an event occurs
+
+setup dynamic resizing
+----
 installed sendgrid and got devise working with password retrieval
 
 11.4.2013
