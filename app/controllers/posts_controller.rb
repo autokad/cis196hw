@@ -7,8 +7,17 @@ class PostsController < ApplicationController
 	def create
 		#@post = Post.new(params[:post])
 		@post = current_user.posts.new(params[:post])
+		
+		@user = User.find(@post.user_id)
+		@user.hours=@post.hours
+		@user.posts.all.each do |post|
+		  @user.hours=@user.hours+post.hours
+		end
+
 		if @post.save
+			@user.save
 			redirect_to @post
+			
 		else
 			render 'new'
 		end
@@ -29,13 +38,12 @@ class PostsController < ApplicationController
 	
 	def update
 		@post = Post.find(params[:id])
-		#@post = current_user.posts.find(params[:id])
 		@user = User.find(@post.user_id)
-		@user.hours=0
+		@user.hours=@post.hours
 		@user.posts.all.each do |post|
 		  @user.hours=@user.hours+post.hours
 		end
-		
+		@user.save
 		
 		if (@post.update_attributes(params[:post]))
 			redirect_to @post
@@ -45,9 +53,14 @@ class PostsController < ApplicationController
 	end
 	
 	def destroy
-		@post = current_user.posts.find(params[:id])
-		#@post = Post.find(params[:id])
+		@post = Post.find(params[:id])
+		@user = User.find(@post.user_id)
 		@post.destroy
+		@user.hours=0
+		@user.posts.all.each do |post|
+		  @user.hours=@user.hours+post.hours
+		end
+		@user.save
 		redirect_to posts_path
 	end
 	
