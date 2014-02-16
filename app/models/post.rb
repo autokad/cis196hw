@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :text, :title
+  attr_accessible :text, :title, :hours
   belongs_to :user
   validates :user_id, presence: true
   validates_presence_of :title, :presence => { :message => "Need a Title" }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007021451) do
+ActiveRecord::Schema.define(:version => 20140216022258) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20131007021451) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.integer  "hours"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20131007021451) do
     t.string   "fname"
     t.string   "lname"
     t.string   "username"
+    t.integer  "hours"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

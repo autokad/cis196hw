@@ -30,6 +30,13 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		#@post = current_user.posts.find(params[:id])
+		@user = User.find(@post.user_id)
+		@user.hours=0
+		@user.posts.all.each do |post|
+		  @user.hours=@user.hours+post.hours
+		end
+		
+		
 		if (@post.update_attributes(params[:post]))
 			redirect_to @post
 		else
